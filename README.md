@@ -89,6 +89,7 @@ This helps in analyzing the **smoothness of motion** and **performance of PID tu
 ```bash
 git clone https://github.com/your-username/FlytBase-Turtle-PID.git
 cd FlytBase-Turtle-PID
+python main.py  # then multiple options to run the goal1 and goal2 and predefined graphs for them
 
 
 
