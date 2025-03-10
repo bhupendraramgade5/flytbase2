@@ -28,4 +28,44 @@ In **Goal 1**, the turtle starts at a **random position** and moves toward a **f
 - **Derivative (`Kd`)** → Prevents overshooting by damping sudden changes.
 
 #### 📌 **Equations for Velocity (`v`) and Angular Velocity (`ω`)**
-v = K_v * distance_error * (1 / (1 + |angle_error| / 30)) ω = Kω * angle_error + Kω2 * (angle_error / (1 + |v|))
+**v = K_v * distance_error * (1 / (1 + |angle_error| / 30)) ω = Kω * angle_error + Kω2 * (angle_error / (1 + |v|))**
+
+This ensures that the turtle **accelerates quickly** but slows down when turning or close to the goal.
+
+---
+
+## 🏁 Goal 2: Grid-Based PID Navigation 🎯
+In **Goal 2**, the turtle follows a **4x4 grid path** while ensuring:
+✅ **Smooth Acceleration & Deceleration**  
+✅ **Controlled Turns (Stop-and-Turn or Smooth Turning)**  
+✅ **Strict Acceleration Limits (-3 to 15 px/s²)**  
+✅ **Real-Time Visualization of Motion Data**  
+
+### 🔧 Implementation Details
+1. **PID-Based Acceleration & Deceleration**  
+   - Acceleration **gradually increases** from 0 to 15 px/s².
+   - Deceleration **smoothly decreases** from 0 to -3 px/s².
+   - **No velocity cap**, but the turtle must stay **within grid bounds**.
+  
+2. **PID-Based Turning Control**  
+   - **Smooth turns** when possible.  
+   - **Stop-and-turn** when necessary (if facing the wrong way).  
+   - Uses **angular velocity control** to ensure precise turns.
+
+3. **Real-Time Visualization**  
+   - **Velocity vs. Time**  
+   - **Acceleration vs. Time**  
+   - **Smooth transitions without hysteresis**
+
+### ⚙️ How PID Works in Goal 2
+- **Velocity PID Controller (`Kp`, `Ki`, `Kd`)**
+  - Ensures smooth motion without sharp jumps.
+  - Limits acceleration between **15 px/s² (max)** and **-3 px/s² (min).**
+  - Starts from **0 and gradually reaches max acceleration**.
+
+- **Angular PID Controller (`Kp`, `Ki`, `Kd`)**
+  - Ensures turns are **smooth and precise**.
+  - Controls **angular velocity** based on heading error.
+
+#### 📌 **Equation for Smooth Acceleration**
+
