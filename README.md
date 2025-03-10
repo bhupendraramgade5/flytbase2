@@ -28,3 +28,4 @@ In **Goal 1**, the turtle starts at a **random position** and moves toward a **f
 - **Derivative (`Kd`)** → Prevents overshooting by damping sudden changes.
 
 #### 📌 **Equations for Velocity (`v`) and Angular Velocity (`ω`)**
+v = K_v * distance_error * (1 / (1 + |angle_error| / 30)) ω = Kω * angle_error + Kω2 * (angle_error / (1 + |v|))
