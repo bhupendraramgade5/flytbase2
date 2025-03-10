@@ -68,4 +68,27 @@ In **Goal 2**, the turtle follows a **4x4 grid path** while ensuring:
   - Controls **angular velocity** based on heading error.
 
 #### 📌 **Equation for Smooth Acceleration**
+**a_new = a_prev + min(accel_rate * dt, a_desired - a_prev)**
+
+This **prevents sudden jumps in acceleration**, ensuring **smooth transitions**.
+
+---
+
+## 📊 Visualization (Real-Time Graphs) 📈
+The **`visualization.py`** module provides real-time graphs of:
+✅ **Velocity vs. Time**  
+✅ **Acceleration vs. Time**  
+✅ **Distance Error vs. Time** (for Goal 1)  
+
+This helps in analyzing the **smoothness of motion** and **performance of PID tuning**.
+
+---
+
+## 🔧 How to Run 🚀
+### 📥 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/FlytBase-Turtle-PID.git
+cd FlytBase-Turtle-PID
+
+
 
